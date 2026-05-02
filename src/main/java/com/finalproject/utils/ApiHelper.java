@@ -43,6 +43,19 @@ public class ApiHelper {
                 .header("Authorization", "Bearer " + token)
                 .delete("/api/user/" + email);
     }
+
+    public static Response createAd (String name, String description, String price, String category, String city) {
+        return RestAssured.given()
+                .contentType(ContentType.JSON)
+                .body(Map.of(
+                        "name", name,
+                        "description", description,
+                        "price", price,
+                        "category", category,
+                        "city", city
+                ))
+                .post("/api/create-listing");
+    }
 }
 
 

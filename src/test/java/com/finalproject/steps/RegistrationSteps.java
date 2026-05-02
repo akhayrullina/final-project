@@ -23,6 +23,7 @@ public class RegistrationSteps {
         homePage.clickLoginAndRegisterButton();
         LoginPage loginPage = new LoginPage();
         loginPage.clickRegisterButton();
+        registrationPage = new RegistrationPage();
     }
 
     @When("user fills registration form with unique email")

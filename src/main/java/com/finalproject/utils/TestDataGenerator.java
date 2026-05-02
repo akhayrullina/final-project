@@ -26,8 +26,13 @@ public class TestDataGenerator {
         return String.valueOf(faker.number().numberBetween(100, 10000));
     }
 
-    public static String generateCategory() {
-        String[] categories = {"Electronics", "Clothing", "Books", "Sports", "Home"};
+    public static String generateAdCategory() {
+        String[] categories = {"Авто", "Книги", "Садоводство", "Хобби", "Технологии"};
         return categories[faker.number().numberBetween(0, categories.length - 1)];
+    }
+
+    public static String generateAdCity() {
+        String[] cities = {"Москва", "Санкт-Петербург", "Новосибирск", "Екатеринбург", "Нижний Новгород", "Казань"};
+        return cities[faker.number().numberBetween(0, cities.length - 1)];
     }
 }
