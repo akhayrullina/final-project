@@ -1,0 +1,35 @@
+package com.finalproject.pages;
+
+import com.codeborne.selenide.SelenideElement;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
+
+public class RegistrationPage {
+    private final SelenideElement emailInput = $("input[name='email']");
+    private final SelenideElement passwordInput = $("input[name='password']");
+    private final SelenideElement submitPasswordInput = $("input[name='submitPassword']");
+    private final SelenideElement submitRegistrationButton = $x("//div[@class='popUp_buttonRow__+W8JD']/button[@type='submit' and text()='Создать аккаунт']");
+    private final SelenideElement loginButton = $x("//div[@class='popUp_buttonRow__+W8JD']/button[@type='button' and text()='Уже есть аккаунт']");
+    private final SelenideElement errorMessage = $(byText("Ошибка"));
+
+
+    public void fillRegistrationForm(String email, String password) {
+        emailInput.shouldBe(visible).setValue(email);
+        passwordInput.shouldBe(visible).setValue(password);
+        submitPasswordInput.shouldBe(visible).setValue(password);
+    }
+
+    public void submitRegistration() {
+        submitRegistrationButton.shouldBe(visible).click();
+    }
+
+    public void clickLoginButton() {
+        loginButton.shouldBe(visible).click();
+    }
+
+    public void getErrorMessage() {
+        errorMessage.shouldBe(visible);
+    }
+}
