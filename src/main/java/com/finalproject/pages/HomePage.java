@@ -33,12 +33,12 @@ public class HomePage {
 
     public void toPersonalAccount() {
         toPersonalAccountButton.shouldBe(visible).click();
+        $x("//h1[text()='Мой профиль']").shouldBe(visible);
     }
 
     public String searchingAd (){
         toPersonalAccount();
-        sleep(300);
-        return $x("//div[@class='card']/div[@class='description']/div[@class='about']/h2").getText();
+        return $x("//div[@class='card']/div[@class='description']/div[@class='about']/h2").shouldBe(visible).getText();
     }
 
     public void openHomePage() {

@@ -40,7 +40,7 @@ public class AdSteps {
         loginPage.login(testEmail, testPassword);
 
         homePage.clickPlaceAnAdButton();
-
+        adPage.getTitleNewAd().shouldBe(visible);
     }
 
     @When("user fills ad creation form with valid data")
@@ -75,7 +75,7 @@ public class AdSteps {
         String newDescription = TestDataGenerator.generateAdDescription();
         String newPrice = TestDataGenerator.generateAdPrice();
         adPage.editAd(newTitle, newDescription, newPrice);
-        sleep(200);
+        adPage.getAdCard().shouldBe(visible);
         title = newTitle;
     }
 
